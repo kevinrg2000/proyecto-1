@@ -1,8 +1,17 @@
-import '../styles/Card.css'
+import "../styles/Card.css";
+import { useState } from "react";
 
-export const Card = ({src, name}) => {
-    return <div className='card'>
-        <img id={name} src={src} alt={name}/>
-        <h3>{name}</h3>
-    </div>
+export const Card = ({ src, name, grow, width, id }) => {
+  return (
+    <button
+      id={id}
+      className="card"
+      onClick={(e) => {
+        grow(e);
+      }}
+      style={{ width: width, background: `url(${src})` }}
+    >
+      <h3>{name}</h3>
+    </button>
+  );
 };
